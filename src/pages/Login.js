@@ -10,7 +10,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../redux/bazarSlice';
-import axios from 'axios';
 import Video from '../components/Video';
 
 const Login = () => {
@@ -34,29 +33,9 @@ const Login = () => {
           })
         );
 
-        const request = {
-          displayName: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL,
-        };
-
-        axios
-          .post('http://localhost:8081/api/v1/customers', request)
-          .then((response) => {
-            console.log(response);
-          })
-          .catch((e) => {
-            if (e.response && e.response.data) {
-              const message = e.response.data;
-              console.log(message.msg);
-            } else {
-              console.error('Error with no response data', e);
-            }
-          });
-
         setTimeout(() => {
           navigate('/Home');
-        }, 1500);
+        }, 1000);
       })
       .catch((error) => {
         console.error(error);

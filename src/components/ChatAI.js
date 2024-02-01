@@ -3,9 +3,8 @@ import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 import { useState } from 'react';
 import Table from './Table';
-import Footer from './Footer';
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const systemMessage = {
   "role": "system",
@@ -103,106 +102,3 @@ function ChatAI() {
 }
 
 export default ChatAI;
-
-// import React, { useEffect, useState } from "react";
-// import { nanoid } from "nanoid";
-// import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-// import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
-// const chatId = nanoid();
-
-// export default function ChatAI() {
-//     const [working, setWorking] = useState(false);
-//     const [messages, setMessages] = useState([
-//         {
-//             role: 'system',
-//             content: 'Welcome to Funnair! How can I help you?',
-//         },
-//     ]);
-
-//     useEffect(() => {
-//         // Update bookings when we have received the full response
-//         if (!working) {
-//             fetchBookings();
-//         }
-//     }, [working]);
-
-//     async function fetchBookings() {
-//         try {
-//             const response = await fetch("http://localhost:8080/api/bookings");
-//             if (!response.ok) {
-//                 throw new Error("Failed to fetch bookings");
-//             }
-//             const bookingsData = await response.json();
-//             // Set bookings data (if needed)
-//         } catch (error) {
-//             console.error("Error fetching bookings:", error);
-//         }
-//     }
-
-//     function addMessage(message) {
-//         setMessages((messages) => [...messages, message]);
-//     }
-
-//     async function sendMessage(messageContent) {
-//         setWorking(true);
-//         const userMessage = {
-//             role: 'user',
-//             content: messageContent,
-//         };
-//         addMessage(userMessage);
-
-//         let first = true;
-//         try {
-//             const response = await fetch(
-//                 `http://localhost:8080/api/chat?chatId=${chatId}&message=${encodeURIComponent(
-//                     messageContent
-//                 )}`
-//             );
-//             if (!response.ok) {
-//                 throw new Error("Failed to send message");
-//             }
-//             const chunks = await response.json();
-//             chunks.forEach((chunk) => {
-//                 if (first && chunk) {
-//                     addMessage({
-//                         role: 'system',
-//                         content: chunk,
-//                     });
-//                     first = false;
-//                 } else {
-//                     addMessage({
-//                         role: 'system',
-//                         content: chunk,
-//                     });
-//                 }
-//             });
-//         } catch (error) {
-//             console.error("Error sending message:", error);
-//         } finally {
-//             setWorking(false);
-//         }
-//     }
-
-//     return (
-//         <div className="App" style={{ display: "flex" }}>
-//             {/* Adjust the width percentages as needed */}
-//             <div style={{ width: '25%' }}>
-//                 <MainContainer>
-//                     <ChatContainer style={{ height: "90vh", flex: 1 }}>
-//                         <MessageList>
-//                             {messages.map((message, i) => (
-//                                 <Message key={i} model={message} />
-//                             ))}
-//                         </MessageList>
-//                         <MessageInput placeholder="Type message here" onSend={sendMessage} />
-//                         {working && <TypingIndicator content="ChatGPT is typing" />}
-//                     </ChatContainer>
-//                 </MainContainer>
-//             </div>
-//             {/* The other component will take up 75% of the screen width */}
-//             <div style={{ width: '75%' }}>
-//                 {/* Add your Table component here */}
-//             </div>
-//         </div>
-//     );
-// }
