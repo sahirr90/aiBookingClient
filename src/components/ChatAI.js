@@ -3,12 +3,17 @@ import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 import { useState } from 'react';
 import Table from './Table';
+import CRUDTable, { AddBooking } from '../pages/AddBooking';
 
-const API_KEY = "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";
+import axios from 'axios';
+
+
+
+const API_KEY = "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";
 
 const systemMessage = {
   "role": "system",
-  "content": "Explain things like you're talking to a customer who has travel needs."
+  "content": "Explain things like you're talking to a customer who has travel needs, but keep it short and sweet."
 }
 
 function ChatAI() {
@@ -71,6 +76,31 @@ function ChatAI() {
         }]);
         setIsTyping(false);
       });
+
+      const cancelBooking = async (bookingNumber, firstName, lastName) => {
+        try {
+          await axios.post(`/api/booking/cancel`, {
+            bookingNumber,
+            firstName,
+            lastName,
+          });
+    
+          fetchBookings();
+        } catch (error) {
+          console.error('Error canceling booking:', error);
+        }
+      };
+    
+      const fetchBookings = async () => {
+        try {
+          // Make API call to fetch bookings from your server
+          const response = await axios.get(`/api/booking/all`);
+          const fetchedBookings = response.data;
+          // Update state or perform other actions with the fetched bookings
+        } catch (error) {
+          console.error('Error fetching bookings:', error);
+        }
+      };
   }
 
   return (
@@ -81,7 +111,7 @@ function ChatAI() {
           <ChatContainer style={{ height: "90vh", flex: 1 }}>
             <MessageList
               scrollBehavior="smooth"
-              typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+              typingIndicator={isTyping ? <TypingIndicator content="Agent is typing" /> : null}
             >
               {messages.map((message, i) => (
                 <Message key={i} model={message} />
@@ -91,10 +121,9 @@ function ChatAI() {
           </ChatContainer>
         </MainContainer>
       </div>
-      {/* The other component will take up 30% of the screen width */}
-      <div style={{ width: '75%' }}>
-      <Table />
-      </div>
+      {/* <div style={{ width: '75%' }}>
+      <AddBooking/>
+      </div> */}
       
       
     </div>

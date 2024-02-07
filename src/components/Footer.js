@@ -14,8 +14,8 @@ import { logo2, card, travel } from '../assets';
 
 const Footer = () => {
   return (
-    <div className='bg-blue-800 text-white py-10 font-titleFont bottom-0 w-full'>
-      <div className='max-w-screen-xl mx-auto grid grid-cols-5'>
+    <div className='bg-blue-800 text-white py-10 font-titleFont bottom-0 w-full '>
+      <div className='max-w-screen-xl mx-auto flex items-center justify-center gap-20 '>
         {/* LogoIcon*/}
         <div className='flex flex-col gap-7'>
           <img className='flex flex-col gap-9 w-32' src={travel} alt='sneakerLogo' />

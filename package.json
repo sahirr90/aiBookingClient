@@ -7,6 +7,8 @@
     "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@hilla/react-components": "^2.3.5",
+    "@mui/icons-material": "^5.15.8",
     "@mui/material": "^5.15.6",
     "@mui/x-data-grid": "^6.19.2",
     "@reduxjs/toolkit": "^2.1.0",
