@@ -52,7 +52,7 @@ export const UpdateBooking = () => {
     bookingService.update(id, bookingData)
       .then(response => {
         console.log('Booking updated successfully:', response);
-        navigate("/add");
+        navigate("/bookings");
       })
       .catch(error => {
         console.error('Error updating booking:', error);
@@ -101,7 +101,78 @@ export const UpdateBooking = () => {
                   autoComplete="family-name"
                 />
               </Grid>
-              {/* Add other fields similarly */}
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  value={bookingData.email}
+                  onChange={handleChange}
+                  label="Email"
+                  name="email"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="bookingStatus"
+                  value={bookingData.bookingStatus}
+                  onChange={handleChange}
+                  label="Booking Status"
+                  name="bookingStatus"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="destinationFrom"
+                  value={bookingData.destinationFrom}
+                  onChange={handleChange}
+                  label="Destination From"
+                  name="destinationFrom"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="destinationTo"
+                  value={bookingData.destinationTo}
+                  onChange={handleChange}
+                  label="Destination To"
+                  name="destinationTo"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="bookingFrom"
+                  value={bookingData.bookingFrom}
+                  onChange={handleChange}
+                  label="Booking From"
+                  name="bookingFrom"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="bookingTo"
+                  value={bookingData.bookingFrom}
+                  onChange={handleChange}
+                  label="Booking To"
+                  name="bookingTo"
+                  autoComplete="family-name"
+                />
+              </Grid>
             </Grid>
             <Button
               type="submit"

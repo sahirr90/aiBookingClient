@@ -42,6 +42,15 @@ const Header = () => {
               Chat Agent {payNow}
             </Link>
             </li>
+            <li >
+            <Link
+              className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'
+              to='/bookings'
+              onClick={(event) => handleChatAgentLink(event)}
+            >
+              Bookings {payNow}
+            </Link>
+            </li>
             <li className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>
               Support
             </li>

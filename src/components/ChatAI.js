@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const systemMessage = {
   "role": "system",
@@ -93,7 +93,6 @@ function ChatAI() {
     
       const fetchBookings = async () => {
         try {
-          // Make API call to fetch bookings from your server
           const response = await axios.get(`/api/booking/all`);
           const fetchedBookings = response.data;
           // Update state or perform other actions with the fetched bookings
@@ -121,9 +120,9 @@ function ChatAI() {
           </ChatContainer>
         </MainContainer>
       </div>
-      {/* <div style={{ width: '75%' }}>
+      <div style={{ width: '75%' }}>
       <AddBooking/>
-      </div> */}
+      </div>
       
       
     </div>

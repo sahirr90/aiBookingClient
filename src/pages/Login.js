@@ -34,7 +34,7 @@ const Login = () => {
         );
 
         setTimeout(() => {
-          navigate('/Home');
+          navigate('/add');
         }, 1000);
       })
       .catch((error) => {

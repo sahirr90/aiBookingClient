@@ -24,11 +24,19 @@ export const BookingDetails = () => {
         })
     }, [])
     const goToUpdate = (id) => {
-        navigate(`/${id}`);
+        navigate(`/update/${id}`);
     }
 
     const deleteBooking = (id) => {
-        console.log(id);
+        bookingService.deleteBooking(id)
+        .then(() => {
+            setBookings(prevBookings => prevBookings.filter(booking => booking.id !== id));
+            console.log(`Booking with id ${id} has been deleted.`);
+        })
+        .catch(error => {
+            console.error('Error deleting booking:', error);
+        });
+    
     }
 
     return (
